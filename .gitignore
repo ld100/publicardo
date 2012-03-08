@@ -1,0 +1,5 @@
+*.pyc
+source/*.jpg
+source/.DS_Store
+destination/*.jpg
+destination/.DS_Store

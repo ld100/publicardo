@@ -1,0 +1,25 @@
+common: &common_settings
+    application_name: "publicardo"
+    debug: true
+    log_level:  "DEBUG"
+    log_filename:   "autonotifier.log"
+    folders:
+        layout: "local"
+        source_folder: "source"
+        destination_folder: "destination"
+    resize:
+        wide_side_length: 1200
+    exif:
+        preserve_author: true
+
+development:
+    <<: *common_settings
+
+test:
+    <<: *common_settings
+
+production:
+    <<: *common_settings
+
+staging:
+    <<: *common_settings
