@@ -1,0 +1,4 @@
+PIL==1.1.7
+ipython==0.12
+wsgiref==0.1.2
+yolk==0.4.3
