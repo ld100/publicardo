@@ -50,12 +50,12 @@ class Watermark(object):
 		background_layer = Image.new("RGBA", im.size, (0,0,0,0))
 		background_draw = ImageDraw.Draw(background_layer)
 		
+		text_length_multiplier = 0.39
+		text_height_multiplier = 1
+		font_size_px = self.points_to_pixels(self.font_size)
 		
-		text_length_multiplier = 0.5
-		text_height_multiplier = 1.2
-		text_box_height = int(self.font_size*text_height_multiplier + self.margin*2)
-		text_box_width = int(len(self.text)*self.font_size*text_length_multiplier + self.margin*2)
-		print text_box_width
+		text_box_height = int(font_size_px*text_height_multiplier + self.margin*2)
+		text_box_width = int(len(self.text)*font_size_px*text_length_multiplier + self.margin)
 		
 		background_draw.rectangle((im.size[0]-text_box_width, im.size[1]-text_box_height, im.size[0], im.size[1]), fill=background_color, outline="#333333")
 		
@@ -75,6 +75,11 @@ class Watermark(object):
 		alpha = ImageEnhance.Brightness(alpha).enhance(opacity)
 		im.putalpha(alpha)
 		return im
+
+	def points_to_pixels(self, point):
+		DPI = 96
+		TPI = 72
+		return int(point*DPI/TPI)
 
 
 	  # def put_watermark_background
