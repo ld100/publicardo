@@ -11,6 +11,15 @@ common: &common_settings
         wide_side_length: 1200
     exif:
         preserve_author: true
+    watermark:
+        font: "Helvetica.ttf"
+        text: "© Alexander Lockshyn | emotionalphoto.com"
+        color: "#efefef"
+        background_color: "#000000"
+        font_size: 24
+        margin: 10
+        text_opacity: 1
+        background_opacity: 0.6
 
 development:
     <<: *common_settings

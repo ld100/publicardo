@@ -9,6 +9,8 @@ import yaml
 PROJECT_ROOT = os.path.normpath(os.path.dirname(__file__))
 CONFIG_ROOT = os.path.join(PROJECT_ROOT, "config")
 BIN_ROOT = os.path.join(PROJECT_ROOT, "bin")
+RESOURCES_ROOT = os.path.join(PROJECT_ROOT, "resources")
+FONTS_ROOT = os.path.join(RESOURCES_ROOT, "fonts")
 
 # TODO: get environment data from the ARGV
 APP_ENVIRONMENT = "development"
