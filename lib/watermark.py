@@ -50,10 +50,14 @@ class Watermark(object):
 		background_layer = Image.new("RGBA", im.size, (0,0,0,0))
 		background_draw = ImageDraw.Draw(background_layer)
 		
-		#textsize = textdraw.textsize(inputtext, font=font)
-		#textpos = [im.size[i]-textsize[i]-margin[i] for i in [0,1]]
-		#textdraw.text(textpos, inputtext, font=font, fill=color)
-		background_draw.rectangle((im.size[0]-500, im.size[1]-60, im.size[0], im.size[1]), fill=background_color, outline="#333333")
+		
+		text_length_multiplier = 0.5
+		text_height_multiplier = 1.2
+		text_box_height = int(self.font_size*text_height_multiplier + self.margin*2)
+		text_box_width = int(len(self.text)*self.font_size*text_length_multiplier + self.margin*2)
+		print text_box_width
+		
+		background_draw.rectangle((im.size[0]-text_box_width, im.size[1]-text_box_height, im.size[0], im.size[1]), fill=background_color, outline="#333333")
 		
 		if opacity != 1:
 			background_layer = self.reduce_opacity(background_layer, opacity)
