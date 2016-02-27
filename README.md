@@ -1,22 +1,36 @@
 # Publicardo
 
 Batch image processing tool before image publication in the internet.
+Features:
 
-### General requirements
-touch
 * Resize images proportionally
-* Decide which EXIF and IPTC info should be present in final file
-* Add watermark
-* Pick from different watermark styles and watermark texts
-* GUI for Windows and Mac
+* Preserves EXIF information
+* Adds beautiful non-disturbing watermark
+* Works on Mac, Linux and Windows
 
+
+### Installation
+
+Clone git repository, run:
+`make init`
+
+### Usage
+
+Copy source jpegs to 'source' folder. Edit watermark text/font and desired
+image sizes in config/settings.yml. Run:
+`make process`
+
+And get watermarked resized versions of photos in 'destination' folder.
+
+Run `make clean` to clean up 'destination' directory and any unneeded caches.
 
 ### TODO
 
-* Use shelf (http://docs.python.org/library/shelve.html) lib to store user data
 * Support not only JPG files
+* Pick from different watermark styles and watermark texts
+* GUI for Windows and Mac
 
-### Internal
+### Internal Dev Info
 
-Libs save command: pip freeze > requirements.txt
-Libs load command: pip install -r requirements.txt
+Libs save command: `pip freeze > requirements.txt` or `make freeze`
+Libs load command: `pip install -r requirements.txt`
