@@ -18,9 +18,9 @@ common: &common_settings
         text: "© Alexander Lockshyn | travelfreak.ru"
         color: "#efefef"
         background_color: "#000000"
-        font_size: 24
+        font_size: 19
         margin: 5
-        text_opacity: 0.93
+        text_opacity: 0.91
         background_opacity: 0.6
 
 development:
