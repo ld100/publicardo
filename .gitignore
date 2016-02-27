@@ -1,3 +1,4 @@
+config/settings.yml
 *.pyc
 source/*.jpg
 source/.DS_Store
