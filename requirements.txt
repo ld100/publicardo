@@ -1,5 +1,5 @@
-PIL==1.1.7
-PyYAML==3.10
-ipython==0.12
-wsgiref==0.1.2
-yolk==0.4.3
+autopep8==1.2.2
+pep8==1.7.0
+Pillow==3.1.1
+PyYAML==3.11
+wheel==0.24.0

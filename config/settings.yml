@@ -12,8 +12,8 @@ common: &common_settings
     exif:
         preserve_author: true
     watermark:
-        font: "Helvetica.ttf"
-        text: "© Alexander Lockshyn | emotionalphoto.com"
+        font: "Tahoma.ttf"
+        text: "© Alexander Lockshyn | travelfreak.ru"
         color: "#efefef"
         background_color: "#000000"
         font_size: 24

@@ -1,10 +1,10 @@
 import os, sys
 import settings
-import Image, ImageEnhance, ImageDraw, ImageFont
+from PIL import Image, ImageEnhance, ImageDraw, ImageFont
 from PIL.ExifTags import TAGS
 
 class Watermark(object):
-	
+
 	def __init__(self, im):
 		self.im = im
 		self.color = settings.CONFIG["watermark"]["color"]
@@ -16,15 +16,15 @@ class Watermark(object):
 		self.background_opacity = settings.CONFIG["watermark"]["background_opacity"]
 		font_path = os.path.join(settings.FONTS_ROOT, settings.CONFIG["watermark"]["font"])
 		self.font = ImageFont.truetype(font_path, self.font_size)
-		
+
 	def render(self):
 		if self.im.mode != "RGBA":
 			self.im = self.im.convert("RGBA")
-			
+
 		margin = (self.margin,self.margin)
 		self.im = self.put_substrate(self.im, self.background_color, self.background_opacity)
 		self.im = self.imprint(self.im, self.text, self.font, self.color, self.text_opacity, margin)
-		
+
 		return self.im
 
 	def imprint(self, im, inputtext, font=None, color=None, opacity=.6, margin=(30,30)):
@@ -41,7 +41,7 @@ class Watermark(object):
 		if opacity != 1:
 			textlayer = self.reduce_opacity(textlayer,opacity)
 		return Image.composite(textlayer, im, textlayer)
-		
+
 	def put_substrate(self, im, background_color, opacity):
 		"""
 		Draws opaque rectangle on a PIL image in a lower-right corner
@@ -49,20 +49,20 @@ class Watermark(object):
 
 		background_layer = Image.new("RGBA", im.size, (0,0,0,0))
 		background_draw = ImageDraw.Draw(background_layer)
-		
+
 		text_length_multiplier = 0.39
 		text_height_multiplier = 1
 		font_size_px = self.points_to_pixels(self.font_size)
-		
+
 		text_box_height = int(font_size_px*text_height_multiplier + self.margin*2)
 		text_box_width = int(len(self.text)*font_size_px*text_length_multiplier + self.margin)
-		
+
 		background_draw.rectangle((im.size[0]-text_box_width, im.size[1]-text_box_height, im.size[0], im.size[1]), fill=background_color, outline="#333333")
-		
+
 		if opacity != 1:
 			background_layer = self.reduce_opacity(background_layer, opacity)
 		return Image.composite(background_layer, im, background_layer)
-		
+
 
 	def reduce_opacity(self, im, opacity):
 		"""Returns an image with reduced opacity."""
@@ -85,7 +85,7 @@ class Watermark(object):
 	  # def put_watermark_background
 	  #   pointsize = 11
 	  #   background_length = @watermark_text.size*pointsize*0.95
-	  # 
+	  #
 	  #   background = Magick::Draw.new
 	  #   background.fill("black")
 	  #   background.fill_opacity(0.6)
