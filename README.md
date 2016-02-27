@@ -18,7 +18,7 @@ Clone git repository, run:
 
 Copy source jpegs to 'source' folder. Edit watermark text/font and desired
 image sizes in config/settings.yml. Run:
-`make process`
+`make process` or `bin/publicardo`
 
 And get watermarked resized versions of photos in 'destination' folder.
 

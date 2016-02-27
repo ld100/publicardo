@@ -5,10 +5,10 @@ freeze:
 	pip freeze > requirements.txt
 
 clean:
-	rm destination/* && bin/cleanpyc.sh
+	bin/cleanpyc.sh && rm destination/*
 
 process:
-	python bin/run.py
+	bin/publicardo
 
 autopep:
-	autopep8 --in-place --aggressive --aggressive *.py
+	autopep8 --in-place --aggressive --aggressive lib/*.py

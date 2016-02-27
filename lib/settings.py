@@ -4,9 +4,16 @@
 # import os.path
 import os
 import sys
+import inspect
 import yaml
 
-PROJECT_ROOT = os.path.normpath(os.path.dirname(__file__))
+currentdir = os.path.dirname(
+    os.path.abspath(
+        inspect.getfile(
+            inspect.currentframe())))
+
+# PROJECT_ROOT = os.path.normpath(os.path.dirname(__file__))
+PROJECT_ROOT = os.path.dirname(currentdir)  # parent dir
 CONFIG_ROOT = os.path.join(PROJECT_ROOT, "config")
 BIN_ROOT = os.path.join(PROJECT_ROOT, "bin")
 RESOURCES_ROOT = os.path.join(PROJECT_ROOT, "resources")

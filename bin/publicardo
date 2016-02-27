@@ -4,8 +4,6 @@
 import os
 import sys
 import inspect
-
-# Import from parent directory
 currentdir = os.path.dirname(
     os.path.abspath(
         inspect.getfile(
@@ -13,8 +11,14 @@ currentdir = os.path.dirname(
 parentdir = os.path.dirname(currentdir)
 sys.path.insert(0, parentdir)
 
-import settings
-from lib.directory import PhotoDirectory
+from lib import launcher
 
-directory = PhotoDirectory(settings.SOURCE_ROOT)
-directory.process()
+
+def main():
+    print "Processing photos..."
+    launcher.main()
+    print "Done."
+
+# Here's our payoff idiom!
+if __name__ == '__main__':
+    main()
