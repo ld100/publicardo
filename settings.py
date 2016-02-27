@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-#import os.path
+# import os.path
 import os
 import sys
 import yaml
@@ -12,8 +12,7 @@ BIN_ROOT = os.path.join(PROJECT_ROOT, "bin")
 RESOURCES_ROOT = os.path.join(PROJECT_ROOT, "resources")
 FONTS_ROOT = os.path.join(RESOURCES_ROOT, "fonts")
 
-# TODO: get environment data from the ARGV
-APP_ENVIRONMENT = "development"
+APP_ENVIRONMENT = os.environ.get("APP_ENVIRONMENT", "development")
 
 config_stream = open(os.path.join(CONFIG_ROOT, "settings.yml"), "r")
 CONFIG = yaml.load(config_stream)[APP_ENVIRONMENT]

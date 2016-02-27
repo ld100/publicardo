@@ -1,6 +1,6 @@
 import os
-import sys
-import settings
+# import sys
+# import settings
 import imghdr
 from file import PhotoFile
 

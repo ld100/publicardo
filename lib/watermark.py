@@ -1,8 +1,8 @@
 import os
-import sys
+# import sys
 import settings
 from PIL import Image, ImageEnhance, ImageDraw, ImageFont
-from PIL.ExifTags import TAGS
+# from PIL.ExifTags import TAGS
 
 
 class Watermark(object):
@@ -117,12 +117,13 @@ class Watermark(object):
         TPI = 72
         return int(point * DPI / TPI)
 
-  # def put_watermark_background
-  #   pointsize = 11
-  #   background_length = @watermark_text.size*pointsize*0.95
-  #
-  #   background = Magick::Draw.new
-  #   background.fill("black")
-  #   background.fill_opacity(0.6)
-  #   background.rectangle(@desired_width-background_length, @desired_height-30, @desired_width, @desired_height)
-  #   background.draw(@file)
+    # Example ruby code:
+    # def put_watermark_background
+    #     pointsize = 11
+    #     background_length = @watermark_text.size*pointsize*0.95
+    #
+    #     background = Magick::Draw.new
+    #     background.fill("black")
+    #     background.fill_opacity(0.6)
+    #     background.rectangle(@desired_width-background_length, @desired_height-30, @desired_width, @desired_height)
+    #     background.draw(@file)

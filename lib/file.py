@@ -1,9 +1,10 @@
 import os
-import sys
+# import sys
 import settings
-from PIL import Image, ImageEnhance, ImageDraw, ImageFont
+from PIL import Image
+# from PIL import ImageEnhance, ImageDraw, ImageFont
 from PIL.ExifTags import TAGS
-from subprocess import call
+# from subprocess import call
 import watermark
 
 
@@ -32,9 +33,10 @@ class PhotoFile(object):
         return mark.render()
 
     def put_exif(self):
-        jhead_string = settings.JHEAD_BIN + " -q -te " + self.infile + " " + self.outfile
-        return_code = os.system(jhead_string)
-        #return_code = call(jhead_string, shell=True)
+        jhead_string = "%s  -q -te %s %s" % \
+            (settings.JHEAD_BIN, self.infile, self.outfile)
+        os.system(jhead_string)
+        # call(jhead_string, shell=True)
 
     def get_exif(self):
         ret = {}

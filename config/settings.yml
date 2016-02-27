@@ -12,13 +12,15 @@ common: &common_settings
     exif:
         preserve_author: true
     watermark:
-        font: "Tahoma.ttf"
+        # font: "M-1c/mplus-1c-bold.ttf"
+        font: "junction/Junction-bold.otf"
+        # font: "HelveticaBold.ttf"
         text: "© Alexander Lockshyn | travelfreak.ru"
         color: "#efefef"
         background_color: "#000000"
         font_size: 24
-        margin: 10
-        text_opacity: 1
+        margin: 5
+        text_opacity: 0.93
         background_opacity: 0.6
 
 development:
