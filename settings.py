@@ -19,26 +19,28 @@ config_stream = open(os.path.join(CONFIG_ROOT, "settings.yml"), "r")
 CONFIG = yaml.load(config_stream)[APP_ENVIRONMENT]
 
 if "local" == CONFIG["folders"]["layout"]:
-	SOURCE_ROOT = os.path.join(PROJECT_ROOT, CONFIG["folders"]["source_folder"])
-	DESTINATION_ROOT = os.path.join(PROJECT_ROOT, CONFIG["folders"]["destination_folder"])
+    SOURCE_ROOT = os.path.join(
+        PROJECT_ROOT,
+        CONFIG["folders"]["source_folder"])
+    DESTINATION_ROOT = os.path.join(
+        PROJECT_ROOT, CONFIG["folders"]["destination_folder"])
 else:
-	SOURCE_ROOT = CONFIG["folders"]["source_folder"]
-	DESTINATION_ROOT = CONFIG["folders"]["destination_folder"]
+    SOURCE_ROOT = CONFIG["folders"]["source_folder"]
+    DESTINATION_ROOT = CONFIG["folders"]["destination_folder"]
 
-DEBUG = CONFIG["debug"]	
+DEBUG = CONFIG["debug"]
 
 # Defining current platform
 
 if "darwin" == sys.platform:
-	PLATFORM = "mac"
-	JHEAD_BIN = os.path.join(BIN_ROOT, "jhead")	
+    PLATFORM = "mac"
+    JHEAD_BIN = os.path.join(BIN_ROOT, "jhead")
 elif "win32" == sys.platform:
-	PLATFORM = "win"
-	JHEAD_BIN = os.path.join(BIN_ROOT, "jhead.exe")
+    PLATFORM = "win"
+    JHEAD_BIN = os.path.join(BIN_ROOT, "jhead.exe")
 elif "cygwin" == sys.platform:
-	PLATFORM = "win"
-	JHEAD_BIN = os.path.join(BIN_ROOT, "jhead.exe")
+    PLATFORM = "win"
+    JHEAD_BIN = os.path.join(BIN_ROOT, "jhead.exe")
 else:
-	PLATFORM = "undefined"
-	JHEAD_BIN = os.path.join(BIN_ROOT, "jhead")
-
+    PLATFORM = "undefined"
+    JHEAD_BIN = os.path.join(BIN_ROOT, "jhead")
